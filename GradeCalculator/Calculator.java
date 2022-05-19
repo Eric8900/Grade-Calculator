@@ -28,12 +28,10 @@ public class Calculator {
 
         int gNeed = 0;
         //quiz grade needed
-        if (isTest.equals("quiz")) {         
-            double diff = gWant - ((avg(major) * maP) + (100 * oP));
-            double minorAvgNeed = diff / miP;
+        if (isTest.equals("quiz")) {
             for (int i = 0; i < 130; i++) {
                 minor.add(i);
-                if (avg(minor) >= minorAvgNeed) {
+                if (round((avg(minor) * miP) + (avg(major) * maP) + (100 * oP)) >= gWant) {
                     gNeed = i;
                     break;
                 }
@@ -41,13 +39,10 @@ public class Calculator {
             }
         }
         //test grade needed
-        else if (isTest.equals("test")) {              
-            double diff = gWant - ((avg(minor) * miP) + (100 * oP));
-            double majorAvgNeed = diff / maP;
+        else if (isTest.equals("test")) {
             for (int i = 0; i < 130; i++) {
                 major.add(i);
-                double nMajorAvg = avg(major);
-                if (nMajorAvg >= majorAvgNeed) {
+                if (round((avg(minor) * miP) + (avg(major) * maP) + (100 * oP)) >= gWant) {
                     gNeed = i;
                     break;
                 }
@@ -55,7 +50,7 @@ public class Calculator {
             }
         }
         if (gNeed > 80) {
-            System.out.println("You can do it! You need at least a " + gNeed + " on the" + isTest + " to get a " + gWant);
+            System.out.println("You can do it! You need at least a " + gNeed + " on the " + isTest + " to get a " + gWant);
         }
         else if (gNeed > 70) {
             System.out.println("You can relax a little! You need at least a " + gNeed + " on the " + isTest + " to get a " + gWant);
@@ -73,5 +68,13 @@ public class Calculator {
             sum += g.get(i);
         }
         return (double) sum / g.size();
+    }
+    public static double round(double r) {
+        double abs = Math.abs(r);
+        double min = Math.floor(abs);
+        if (abs - min >= 0.5) {
+            return Math.ceil(r);
+        } 
+        return (double)min;
     }
 }
