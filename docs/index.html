@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Calculator</title>
+  </head>
+  <body>
+    <div>
+        <h1 id = "title">Grade Calculator</h1>
+    </div>
+    <label>Number of Major Grades</label> <br>
+    <input type = "number" id = "numMa">  <br>
+    <label>Number of Minor Grades</label><br>
+    <input type = "number" id = "numMi"><br> <br>
+    <a href="#" onclick="addDiv()">Add Grades</a> <br> 
+    <div id = "majors"></div>
+    <div id = "minors"></div> <br>
+
+    <label>Major Grade Percentage</label> <br>
+    <input type = "number" id = "maP"> <br>
+    <label>Minor Grade Percentage</label> <br>
+    <input type = "number" id = "miP"> <br>
+    <label>Other Grade Percentage</label> <br>
+    <input type = "number" id = "otP"> <br>
+    <label>Desired Minimum Grade</label> <br>
+    <input type = "number" id = "want"> <br> 
+    <label>Test or Quiz</label> <br>
+    <input type = "text" id = "isTest"> <br> <br>
+    <button type ="button" id = "Submit">Submit</button> <br>
+    <p>Grade Needed: </p>
+    <div id ="grade"></div>
+	<script src="index.js"></script>
+  </body>
+</html>
