@@ -4,38 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test Calculator</title>
+    <link rel="stylesheet" href="main.css"/>
+    <title>Next Assessment Grade Calculator</title>
   </head>
   <body>
+    
     <div>
-        <h1 id = "title">Grade Calculator</h1>
+        <h1 id = "title" class="title">Grade Calculator</h1>
     </div>
-    <label>Number of Major Grades</label> <br>
-    <input type = "number" id = "numMa">  <br>
-    <label>Number of Minor Grades</label><br>
-    <input type = "number" id = "numMi"><br> <br>
-    <button onclick="addGradesDiv()" id = "bigGrades">Add Grades</button> <br> <br> 
-    <div id = "majors"></div>
-    <div id = "minors"></div> <br>
-    <button onclick="addOtherDiv()" id = "smallGrades">Add Other Grades (If you don't have a 100 in them)</button> <br>
-    <div id = "addOther"></div> <br>
-    <div id = "others"></div>
-    <label>Major Grade Percentage</label> <br>
-    <input type = "number" id = "maP"> <br>
-    <label>Minor Grade Percentage</label> <br>
-    <input type = "number" id = "miP"> <br>
-    <label>Other Grade Percentage</label> <br>
-    <input type = "number" id = "otP"> <br>
-    <label>Desired Minimum Grade</label> <br>
-    <input type = "number" id = "want"> <br> 
-    <label>Taking </label> <br>
-    <select id="isTest">
-      <option value="test">Test</option>
-      <option value="quiz">Quiz</option>
-    </select> <br> <br>
-    <button type ="button" id = "Submit">Submit</button> <br>
-    <p>Grade Needed: </p>
-    <div id ="grade"></div>
+    <div class="enter">
+      <label class="label">Number of Major Grades</label><br>
+      <input type = "number" id = "numMa" class="input" placeholder="Number of Major Grades" />  <br>
+
+      <label class="label">Number of Minor Grades</label><br>
+      <input type = "number" id = "numMi" class="input" placeholder="Number of Minor Grades"><br> 
+
+      <button onclick="addGradesDiv()" id = "bigGrades" class="addGrade">Add Grades</button> <br>
+      <div id="contain" class="contain">
+        <div id = "majors"></div>
+        <div id = "minors"></div> 
+      </div>
+
+      <button onclick="addOtherDiv()" id = "smallGrades">Add Other Grades (If you don't have a 100 in them)</button> <br>
+      <div id="containOther" class="containOther">
+        <div id = "addOther" ></div> <br>
+        <div id = "others" ></div>
+      </div>
+
+      <label class="label">Major Grade Percentage</label> <br>
+      <input type = "number" id = "maP" class="input" placeholder="Major Grade Percentage"> <br>
+
+      <label class="label">Minor Grade Percentage</label> <br>
+      <input type = "number" id = "miP" class="input" placeholder="Minor Grade Percentage"> <br>
+
+      <label class="label">Other Grade Percentage</label> <br>
+      <input type = "number" id = "otP" class="input" placeholder="Other Grade Percentage"> <br>
+
+      <label class="label">Desired Minimum Grade</label> <br>
+      <input type = "number" id = "want" class="input" placeholder="Desired Minimum Grade"> <br> 
+
+      <label class="label" >Taking </label> <br>
+      <div class="select">
+        <select id="isTest">
+          <option value="test">Test</option>
+          <option value="quiz">Quiz</option>
+        </select>
+        <div class="select_arrow"></div>
+      </div> <br> <br>
+
+      <button type ="button" id = "Submit">Submit</button> <br>
+
+      <div class="gNeeded" id="gNeeded">
+        <p>Grade Needed: </p>
+        <div id ="grade"></div>
+      </div>
+    </div>
 	<script src="index.js"></script>
   </body>
 </html>

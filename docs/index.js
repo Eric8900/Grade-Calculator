@@ -13,9 +13,16 @@ function addGradesDiv() {
     numMa = document.getElementById("numMa").value;
     numMi = document.getElementById("numMi").value;
 
+    if (numMa == 0 && numMi == 0) {
+        document.getElementById("contain").style.visibility = "hidden";
+        return;
+    }
+    
+    document.getElementById("contain").style.visibility = "visible";
+
     var majors = document.getElementById("majors");
     var minors = document.getElementById("minors");
-
+    
     while (majors.hasChildNodes()) {
         majors.removeChild(majors.lastChild);
     }
@@ -25,12 +32,17 @@ function addGradesDiv() {
     }
 
     for (let i = 0; i < numMa; i++) {
-        majors.appendChild(document.createTextNode("Major Grade " + (i+1)));
+        var p = majors.appendChild(document.createElement("label"));
+            p.textContent = "Major Grade " + (i + 1);
+            p.className = "label";
+            majors.appendChild(p);
         majors.appendChild(document.createElement("br"));
 
         var input = document.createElement("input");
         input.type = "number";
         input.id = "ma" + i;
+        input.className = "input";
+        input.placeholder = "Major Grade " + (i + 1);
 
         majors.appendChild(input);
         majors.appendChild(document.createElement("br"));
@@ -39,23 +51,28 @@ function addGradesDiv() {
         }
     }
     for (let i = 0; i < numMi; i++) {
-        minors.appendChild(document.createTextNode("Minor Grade " + (i+1)));
+        var p = minors.appendChild(document.createElement("label"));
+            p.textContent = "Minor Grade " + (i + 1);
+            p.className = "label";
+            minors.appendChild(p);
         minors.appendChild(document.createElement("br"));
 
         var input = document.createElement("input");
         input.type = "number";
         input.id = "mi" + i;
+        input.className = "input";
+        input.placeholder = "Minor Grade " + (i + 1);
 
         minors.appendChild(input);
         minors.appendChild(document.createElement("br"));
     }
 }
 
+//OTHER DIV
 function addOtherDiv() {
     isOther = true;
+    document.getElementById("containOther").style.visibility = "visible";
     var addOther = document.getElementById("addOther");
-    addOther.appendChild(document.createTextNode("Number of Other Grades"));
-    addOther.appendChild(document.createElement("br"));
 
     while (addOther.hasChildNodes()) {
         addOther.removeChild(addOther.lastChild);
@@ -64,6 +81,8 @@ function addOtherDiv() {
     var inputOther = document.createElement("input");
     inputOther.type = "number";
     inputOther.id = "numOt";
+    inputOther.className = "input";
+    inputOther.placeholder = "Number of Other Grades";
 
     addOther.appendChild(inputOther);
     addOther.appendChild(document.createElement("br"));
@@ -81,12 +100,17 @@ function addOtherDiv() {
         }
     
         for (let i = 0; i < numOt; i++) {
-            others.appendChild(document.createTextNode("Other Grade " + (i+1)));
+            var p = others.appendChild(document.createElement("label"));
+            p.textContent = "Other Grade " + (i + 1);
+            p.className = "label";
+            others.appendChild(p);
             others.appendChild(document.createElement("br"));
     
             var input = document.createElement("input");
             input.type = "number";
             input.id = "ot" + i;
+            input.className = "input";
+            input.placeholder = "Other Grade " + (i + 1);
     
             others.appendChild(input);
             others.appendChild(document.createElement("br"));
@@ -94,17 +118,31 @@ function addOtherDiv() {
                 others.appendChild(document.createElement("br"));
             }
         }
+
+        
+
+        
     }
 
     addOther.appendChild(submit);
     addOther.appendChild(document.createElement("br"));
+    addOther.appendChild(document.createElement("br"));
 
+    var remove = document.createElement("BUTTON");
+    remove.textContent = "Remove Others"; 
+    remove.onclick = function() {
+        document.getElementById("containOther").style.visibility = "hidden";
+        isOther = false;
+        while (others.hasChildNodes()) {
+            others.removeChild(others.lastChild);
+        }
+        while (addOther.hasChildNodes()) {
+            addOther.removeChild(addOther.lastChild);
+        }
+    }
+    addOther.appendChild(remove);
+    addOther.appendChild(document.createElement("br"));
 }
-
-function others() {
-    
-}
-
 
 // SUBMIT
 document.getElementById("Submit").onclick = function() {
@@ -154,12 +192,13 @@ document.getElementById("Submit").onclick = function() {
                 minors.pop();
             }
         }
-    
+    document.getElementById("gNeeded").style.visibility = "visible";
     var grade = document.getElementById("grade");
     if (grade.hasChildNodes()) {
         grade.removeChild(grade.lastChild);
     }
     grade.appendChild(document.createTextNode(gNeed));
+    
 }
 
 function avg(grades) {
