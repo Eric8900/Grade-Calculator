@@ -14,10 +14,12 @@
     <input type = "number" id = "numMa">  <br>
     <label>Number of Minor Grades</label><br>
     <input type = "number" id = "numMi"><br> <br>
-    <a href="#" onclick="addDiv()">Add Grades</a> <br> 
+    <button onclick="addGradesDiv()" id = "bigGrades">Add Grades</button> <br> <br> 
     <div id = "majors"></div>
     <div id = "minors"></div> <br>
-
+    <button onclick="addOtherDiv()" id = "smallGrades">Add Other Grades (If you don't have a 100 in them)</button> <br>
+    <div id = "addOther"></div> <br>
+    <div id = "others"></div>
     <label>Major Grade Percentage</label> <br>
     <input type = "number" id = "maP"> <br>
     <label>Minor Grade Percentage</label> <br>
@@ -26,8 +28,11 @@
     <input type = "number" id = "otP"> <br>
     <label>Desired Minimum Grade</label> <br>
     <input type = "number" id = "want"> <br> 
-    <label>Test or Quiz</label> <br>
-    <input type = "text" id = "isTest"> <br> <br>
+    <label>Taking </label> <br>
+    <select id="isTest">
+      <option value="test">Test</option>
+      <option value="quiz">Quiz</option>
+    </select> <br> <br>
     <button type ="button" id = "Submit">Submit</button> <br>
     <p>Grade Needed: </p>
     <div id ="grade"></div>

@@ -5,9 +5,11 @@ let want;
 let isTest;
 let numMa;
 let numMi;
+let isOther;
+let numOt;
 
 // ADDING GRADES
-function addDiv() {
+function addGradesDiv() {
     numMa = document.getElementById("numMa").value;
     numMi = document.getElementById("numMi").value;
 
@@ -32,6 +34,9 @@ function addDiv() {
 
         majors.appendChild(input);
         majors.appendChild(document.createElement("br"));
+        if (i + 1 == numMa) {
+            majors.appendChild(document.createElement("br"));
+        }
     }
     for (let i = 0; i < numMi; i++) {
         minors.appendChild(document.createTextNode("Minor Grade " + (i+1)));
@@ -44,6 +49,60 @@ function addDiv() {
         minors.appendChild(input);
         minors.appendChild(document.createElement("br"));
     }
+}
+
+function addOtherDiv() {
+    isOther = true;
+    var addOther = document.getElementById("addOther");
+    addOther.appendChild(document.createTextNode("Number of Other Grades"));
+    addOther.appendChild(document.createElement("br"));
+
+    while (addOther.hasChildNodes()) {
+        addOther.removeChild(addOther.lastChild);
+    }
+
+    var inputOther = document.createElement("input");
+    inputOther.type = "number";
+    inputOther.id = "numOt";
+
+    addOther.appendChild(inputOther);
+    addOther.appendChild(document.createElement("br"));
+
+    var submit = document.createElement("BUTTON");
+    submit.id = "submitNumOther";
+    submit.textContent = "Add Others";
+    submit.onclick = function() {
+        numOt = document.getElementById("numOt").value;
+
+        var others = document.getElementById("others");
+    
+        while (others.hasChildNodes()) {
+            others.removeChild(others.lastChild);
+        }
+    
+        for (let i = 0; i < numOt; i++) {
+            others.appendChild(document.createTextNode("Other Grade " + (i+1)));
+            others.appendChild(document.createElement("br"));
+    
+            var input = document.createElement("input");
+            input.type = "number";
+            input.id = "ot" + i;
+    
+            others.appendChild(input);
+            others.appendChild(document.createElement("br"));
+            if (i + 1 == numOt) {
+                others.appendChild(document.createElement("br"));
+            }
+        }
+    }
+
+    addOther.appendChild(submit);
+    addOther.appendChild(document.createElement("br"));
+
+}
+
+function others() {
+    
 }
 
 
@@ -64,30 +123,37 @@ document.getElementById("Submit").onclick = function() {
         minors[i] = document.getElementById("mi" + i).value;
     }
 
-    
-        if (isTest == "Test" || isTest == "test") {
-        let miAvg = avg(minors);
-        for (let i = 0; i < 130; i++) {
-            majors.push(i);
-            if ((miAvg * miP) + (avg(majors) * maP) + (100 * otP) >= want) {
-                gNeed = i;
-                break;
-            }
-            majors.pop();
+    if (isOther) {
+        let others = [numOt];
+        for (let i = 0; i < numOt; i++) {
+            others[i] = document.getElementById("ot" + i).value;
         }
+        otP = avg(others) * 0.001
     }
 
-        if (isTest == "Quiz" || isTest == "quiz") {
-        let maAvg = avg(majors);
-        for (let i = 0; i < 130; i++) {
-            minors.push(i);
-            if ((avg(minors) * miP) + (maAvg * maP) + (100 * otP) >= want) {
-                gNeed = i;
-                break;
+        if (isTest == "test") {
+            let miAvg = avg(minors);
+            for (let i = 0; i < 130; i++) {
+                majors.push(i);
+                if ((miAvg * miP) + (avg(majors) * maP) + (100 * otP) >= want) {
+                    gNeed = i;
+                    break;
+                }
+                majors.pop();
             }
-            minors.pop();
         }
-    }
+
+        if (isTest == "quiz") {
+            let maAvg = avg(majors);
+            for (let i = 0; i < 130; i++) {
+                minors.push(i);
+                if ((avg(minors) * miP) + (maAvg * maP) + (100 * otP) >= want) {
+                    gNeed = i;
+                    break;
+                }
+                minors.pop();
+            }
+        }
     
     var grade = document.getElementById("grade");
     if (grade.hasChildNodes()) {
