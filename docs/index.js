@@ -12,11 +12,6 @@ let numOt;
 function addGradesDiv() {
     numMa = document.getElementById("numMa").value;
     numMi = document.getElementById("numMi").value;
-
-    if (numMa == 0 && numMi == 0) {
-        document.getElementById("contain").style.visibility = "hidden";
-        return;
-    }
     
     document.getElementById("contain").style.visibility = "visible";
 
@@ -29,6 +24,11 @@ function addGradesDiv() {
 
     while (minors.hasChildNodes()) {
         minors.removeChild(minors.lastChild);
+    }
+
+    if (numMa == 0 && numMi == 0) {
+        document.getElementById("contain").style.visibility = "hidden";
+        return;
     }
 
     for (let i = 0; i < numMa; i++) {

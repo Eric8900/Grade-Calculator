@@ -1,4 +1,4 @@
-body {
+.body {
     font-family: 'Poppins', sans-serif; 
     display: flex;
     flex-direction: column;
@@ -6,6 +6,7 @@ body {
     font-size: 1.5rem;
     background-color:rgb(41, 41, 41);
     color: #C5E7FF;
+    align-items: center;
 }
 
 .title {
@@ -17,14 +18,15 @@ body {
     position: relative;
     margin: 10px;
     margin-left: 15px;
-    width: 50%;
+    width: 30%;
 }
 
 .contain {
     position: relative;
     visibility: hidden;
+    width: auto;
     color: #C5E7FF;
-    background-color: rgb(41, 41, 41);
+    /* /* background-color: rgb(41, 41, 41); */
     border-radius: 1.25rem;
     -webkit-border-radius: 1.25rem;
     -moz-border-radius: 1.25rem;
@@ -39,7 +41,7 @@ body {
     position: relative;
     visibility: hidden;
     color: #C5E7FF;
-    background-color: rgb(41, 41, 41);
+    /* /* background-color: rgb(41, 41, 41); */ 
     border-radius: 1.25rem;
     -webkit-border-radius: 1.25rem;
     -moz-border-radius: 1.25rem;
@@ -58,7 +60,7 @@ body {
     font-style: normal;
     text-transform: lowercase;
     color: #C5E7FF;
-    background-color: rgb(41, 41, 41);
+    /* background-color: rgb(41, 41, 41); */
     border-radius: 1.25rem;
     -webkit-border-radius: 1.25rem;
     -moz-border-radius: 1.25rem;
@@ -80,9 +82,11 @@ body {
     font-size: 1.3rem;  
     padding: 7px 0;
     transition: border-color 0.2s;
-    background-color: rgb(41, 41, 41);
+    /* background-color: rgb(41, 41, 41); */
     text-align: center;
     color:#57BAFF;
+    width: -webkit-fill-available;
+    background: none;
 } 
 .input::placeholder {
     color:#C5E7FF;
@@ -162,7 +166,7 @@ button:active {
 .gNeeded {
     visibility: hidden;
     color: #C5E7FF;
-    background-color: rgb(41, 41, 41);
+    /* background-color: rgb(41, 41, 41); */
     border-radius: 1.25rem;
     -webkit-border-radius: 1.25rem;
     -moz-border-radius: 1.25rem;
