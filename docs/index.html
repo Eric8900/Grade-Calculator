@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="main.css"/>
+    <meta property="og:title" content="Grade Calculator">
+    <meta property="og:description" content="Find The Lowest Grade You Need On Your Next Test or Quiz!"> 
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://postimg.cc/w1wCx4qP">
+    <meta property="og:url" content="eric8900.github.io/GradeCalculator">
+    <meta name="twitter:card" content="summary _large_image"> 
     <title>Next Assessment Grade Calculator</title>
   </head>
   <body>
@@ -21,14 +27,14 @@
 
       <button onclick="addGradesDiv()" id = "bigGrades" class="addGrade">Add Grades</button> <br>
       <div id="contain" class="contain">
-        <div id = "majors"></div>
-        <div id = "minors"></div> 
+        <div id = "majors" class="grades"></div>
+        <div id = "minors" class="grades"></div> 
       </div>
 
       <button onclick="addOtherDiv()" id = "smallGrades">Add Other Grades (If you don't have a 100 in them)</button> <br>
       <div id="containOther" class="containOther">
-        <div id = "addOther" ></div> <br>
-        <div id = "others" ></div>
+        <div id = "addOther" class="grades"></div> <br>
+        <div id = "others" class="grades"></div>
       </div>
 
       <label class="label">Major Grade Percentage</label> <br>
