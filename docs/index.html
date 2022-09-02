@@ -21,6 +21,8 @@
         <h1 id = "title" class="title">Grade Calculator</h1>
     </div>
     <div class="enter">
+      <input onclick="save()" id="save" type="submit" value="Save" class="1"/>
+      <input onclick="loadSaved()" type="submit" value="Load From Saved"/> <br><br>
       <label class="label">Number of Major Grades</label><br>
       <input type = "number" id = "numMa" class="input" placeholder="Number of Major Grades" />  <br>
 
@@ -59,8 +61,7 @@
         </select>
         <div class="select_arrow"></div>
       </div> <br> <br>
-
-      <button type ="button" id = "Submit">Submit</button> <br>
+      <button type ="button" id = "Submit" onclick="Submit()">Submit</button><br>
 
       <div class="gNeeded" id="gNeeded">
         <p>Grade Needed: </p>
