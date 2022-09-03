@@ -175,8 +175,8 @@ function addOtherDiv() {
 // SUBMIT
 function Submit() {
     var gNeed = 0;
-    majors = [numMa];
-    minors = [numMi];
+    majors = [];
+    minors = [];
     maP = document.getElementById("maP").value;
     miP = document.getElementById("miP").value;
     otP = document.getElementById("otP").value;
@@ -194,13 +194,13 @@ function Submit() {
         for (let i = 0; i < numOt; i++) {
             others[i] = document.getElementById("ot" + i).value;
         }
-        otP = avg(others) * 0.001
+        otP = avg(others) * 0.001;
     }
 
         if (isTest == "test") {
             let miAvg = avg(minors);
             for (let i = 0; i < 130; i++) {
-                majors.push(i);
+                majors.push(parseInt(i));
                 if ((miAvg * miP) + (avg(majors) * maP) + (100 * otP) >= want) {
                     gNeed = i;
                     break;
@@ -212,7 +212,7 @@ function Submit() {
         if (isTest == "quiz") {
             let maAvg = avg(majors);
             for (let i = 0; i < 130; i++) {
-                minors.push(i);
+                minors.push(parseInt(i));
                 if ((avg(minors) * miP) + (maAvg * maP) + (100 * otP) >= want) {
                     gNeed = i;
                     break;
